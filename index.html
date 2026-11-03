@@ -56,8 +56,15 @@
     display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;
     font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:1.25rem;
   }
-  .ag{display:inline-flex;align-items:baseline;gap:.35rem;color:var(--muted)}
-  .ag b{font-weight:500;color:var(--ink)}
+  .ag{
+    width:3.25rem;height:3.5rem;border:1px solid var(--ink);border-radius:2px;
+    padding:.28rem .35rem;display:flex;flex-direction:column;justify-content:space-between;
+    background:linear-gradient(145deg,#FBFCFC 0%,#DDE1E6 45%,#F2F4F6 60%,#C9CFD5 100%);
+    color:var(--ink);line-height:1;
+  }
+  .ag .n{font-size:.55rem;color:var(--muted)}
+  .ag .s{font-size:1.25rem;font-weight:500;letter-spacing:-.02em}
+  .ag .m{font-size:.45rem;color:var(--muted)}
 
   @media (prefers-reduced-motion:no-preference){
     .name sup{animation:sheen 2.4s ease-out .6s both}
@@ -75,7 +82,7 @@
     </main>
     <footer>
       <span>© 2026 Argentic47 Inc.</span>
-      <span class="ag" title="Silver, element 47"><b>Ag</b> 47</span>
+      <span class="ag" role="img" aria-label="Silver: atomic number 47, symbol Ag" title="Silver, element 47"><span class="n">47</span><span class="s">Ag</span><span class="m">107.87</span></span>
     </footer>
   </div>
 </body>
