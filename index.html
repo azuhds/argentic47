@@ -16,7 +16,7 @@
   :root{
     --bg:#F7F8F9;
     --ink:#252A31;
-    --muted:#6B737D;
+    --muted:#4E5661;
     --silver:#A9B1BA;
     --line:#D5DAE0;
     --pad:clamp(1.5rem,5vw,4.5rem);
@@ -25,11 +25,11 @@
   body{
     margin:0;background:var(--bg);color:var(--ink);
     font-family:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
-    font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;
+    font-size:1.125rem;line-height:1.6;-webkit-font-smoothing:antialiased;
   }
   a{color:inherit}
   a:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
-  .wrap{max-width:68rem;margin:0 auto;padding:0 var(--pad)}
+  .wrap{max-width:74rem;margin:0 auto;padding:0 var(--pad)}
 
   /* Opening: the calling card, kept intact */
   .intro{min-height:88vh;min-height:88svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(3rem,10vh,6rem)}
@@ -50,24 +50,19 @@
   .email:hover{border-bottom-color:var(--ink)}
   .intro .email{align-self:flex-start}
 
-  /* Content sections: quiet, left-aligned, hairline separated */
-  section{border-top:1px solid var(--line);padding:clamp(3rem,8vw,5.5rem) 0;display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:2rem 4rem}
-  section h2{margin:0;font-size:1.05rem;font-weight:500;line-height:1.4}
-  .lead{margin:0 0 2.5rem;font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:300;line-height:1.35;letter-spacing:-.01em;max-width:34rem}
+  /* Content sections: the heading is the statement; content uses the full width */
+  section{border-top:1px solid var(--line);padding:clamp(3.5rem,8vw,6.5rem) 0}
+  section h2{margin:0 0 clamp(2rem,4vw,3rem);font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:300;line-height:1.15;letter-spacing:-.02em;max-width:46rem}
 
-  .list{margin:0;padding:0;list-style:none;max-width:36rem}
-  .list li{padding:.75rem 0;border-top:1px solid var(--line);color:var(--muted)}
-  .note{margin:1.5rem 0 0;color:var(--ink);font-size:.95rem}
+  .list{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:3.5rem}
+  .list li{padding:1.1rem 0;border-top:1px solid var(--line);color:var(--ink);font-size:clamp(1.1rem,1.6vw,1.25rem);line-height:1.45}
 
-  .steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.5rem}
-  .steps li{counter-increment:s}
-  .steps{counter-reset:s}
-  .steps li::before{content:counter(s);display:block;font-size:2.2rem;font-weight:300;line-height:1;margin-bottom:1rem;color:var(--silver)}
-  .steps h3{margin:0 0 .4rem;font-size:1.05rem;font-weight:500}
-  .steps p{margin:0;color:var(--muted)}
+  .steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3rem;counter-reset:s}
+  .steps li{counter-increment:s;border-top:1px solid var(--ink);padding-top:1.4rem}
+  .steps li::before{content:counter(s);display:block;font-size:1rem;font-weight:500;line-height:1;margin-bottom:1.1rem;color:var(--silver)}
+  .steps h3{margin:0 0 .6rem;font-size:clamp(1.25rem,1.8vw,1.45rem);font-weight:500;line-height:1.3}
+  .steps p{margin:0;color:var(--muted);font-size:1.1rem}
 
-
-  .contact .lead{margin-bottom:0}
 
   footer{
     border-top:1px solid var(--line);padding:1.25rem 0 var(--pad);
@@ -122,7 +117,8 @@
   }
   @media (max-width:760px){
     section{grid-template-columns:1fr;gap:1.25rem}
-    .steps{grid-template-columns:1fr;gap:2rem}
+    .steps,.list{grid-template-columns:1fr;gap:0 2rem}
+    .steps{gap:2.25rem}
     .intro{min-height:80svh}
   }
 </style>
@@ -152,35 +148,28 @@
 
   <main>
     <section aria-labelledby="what">
-      <h2 id="what">What we do</h2>
-      <div>
-        <p class="lead">We find the repetitive work slowing your team down and hand it to systems that do it reliably.</p>
-        <ul class="list">
-          <li>Automating repetitive requests, approvals and handoffs</li>
-          <li>Connecting the systems you already use, so information flows on its own</li>
-          <li>AI assistants that answer from your own documents and only take approved actions</li>
-          <li>Websites and simple tools your team can actually maintain</li>
-          <li>Keeping your data safe as AI moves fast: the right people and tools get access to the right information, and nothing more</li>
-        </ul>
-        <p class="note">For small businesses and growing teams.</p>
-      </div>
+      <h2 id="what">We find the repetitive work slowing your team down and hand it to systems that do it reliably.</h2>
+      <ul class="list">
+        <li>Automating repetitive requests, approvals and handoffs</li>
+        <li>Connecting the systems you already use, so information flows on its own</li>
+        <li>AI assistants that answer from your own documents and only take approved actions</li>
+        <li>Keeping your data safe as AI moves fast: the right people and tools get access to the right information, and nothing more</li>
+        <li>Websites and tools your team can actually maintain</li>
+      </ul>
     </section>
 
     <section aria-labelledby="how">
       <h2 id="how">How we work</h2>
       <ol class="steps">
-        <li><h3>Look at the real work</h3><p>We start from what your team does every day, not a wishlist.</p></li>
-        <li><h3>Start with one thing</h3><p>We automate a single task end to end and make sure it saves time.</p></li>
-        <li><h3>Hand it over</h3><p>Everything is documented and yours to keep.</p></li>
+        <li><h3>Map how work really flows</h3><p>We look at how work actually moves through your team, where the time goes and where it gets stuck.</p></li>
+        <li><h3>Design and build</h3><p>We design and build the automation and AI that clear the way, on the tools you already use.</p></li>
+        <li><h3>Roll out and hand over</h3><p>We roll it out with your team, measure the time saved, and leave everything documented and yours.</p></li>
       </ol>
     </section>
 
-    <section class="contact" aria-labelledby="contact">
-      <h2 id="contact">Contact</h2>
-      <div>
-        <p class="lead">Tell us what's slowing your team down.</p>
-        <a class="email" href="mailto:ag@argentic47.com">ag@argentic47.com</a>
-      </div>
+    <section aria-labelledby="contact">
+      <h2 id="contact">Tell us what's slowing your team down.</h2>
+      <a class="email" href="mailto:ag@argentic47.com">ag@argentic47.com</a>
     </section>
   </main>
 
