@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Argentic47</title>
-<meta name="description" content="Practical AI and automation that gives teams their time back. Less resistance. More flow.">
+<meta name="description" content="Practical AI and automation for small businesses. Less resistance. More flow.">
 <meta property="og:title" content="Argentic47">
 <meta property="og:description" content="Practical AI and automation that gives teams their time back.">
 <meta property="og:image" content="https://argentic47.com/assets/argentic47-social.png">
@@ -55,10 +55,8 @@
   section h2{margin:0;font-size:1.05rem;font-weight:500;line-height:1.4}
   .lead{margin:0 0 2.5rem;font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:300;line-height:1.35;letter-spacing:-.01em;max-width:34rem}
 
-  .audiences{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem 3.5rem}
-  .audiences h3{margin:0 0 .9rem;font-size:1.05rem;font-weight:500}
-  .audiences ul{margin:0;padding:0;list-style:none}
-  .audiences li{padding:.7rem 0;border-top:1px solid var(--line);color:var(--muted)}
+  .list{margin:0;padding:0;list-style:none;max-width:36rem}
+  .list li{padding:.75rem 0;border-top:1px solid var(--line);color:var(--muted)}
 
   .steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.5rem}
   .steps li{counter-increment:s}
@@ -67,8 +65,6 @@
   .steps h3{margin:0 0 .4rem;font-size:1.05rem;font-weight:500}
   .steps p{margin:0;color:var(--muted)}
 
-  .about p{margin:0 0 1rem;max-width:36rem}
-  .about p.muted{color:var(--muted)}
 
   .contact .lead{margin-bottom:0}
 
@@ -87,7 +83,7 @@
   }
   @media (max-width:760px){
     section{grid-template-columns:1fr;gap:1.25rem}
-    .audiences,.steps{grid-template-columns:1fr;gap:2rem}
+    .steps{grid-template-columns:1fr;gap:2rem}
     .intro{min-height:80svh}
   }
 </style>
@@ -103,28 +99,16 @@
   </header>
 
   <main>
-    <section aria-labelledby="who">
-      <h2 id="who">Who we help</h2>
+    <section aria-labelledby="what">
+      <h2 id="what">What we do</h2>
       <div>
         <p class="lead">We take repetitive work off your team's plate, using the tools you already have.</p>
-        <div class="audiences">
-          <div>
-            <h3>Small businesses</h3>
-            <ul>
-              <li>A simple website you can actually update</li>
-              <li>Everyday tasks on autopilot: bookings, forms, follow-ups and invoices</li>
-              <li>Getting your team set up with AI tools, safely</li>
-            </ul>
-          </div>
-          <div>
-            <h3>IT teams</h3>
-            <ul>
-              <li>Common service desk requests resolved automatically, end to end</li>
-              <li>Microsoft 365 access and licensing handled by rules instead of tickets</li>
-              <li>AI assistants that only take approved, logged actions</li>
-            </ul>
-          </div>
-        </div>
+        <ul class="list">
+          <li>A simple website you can actually update</li>
+          <li>Everyday tasks on autopilot: bookings, forms, follow-ups and invoices</li>
+          <li>Connecting the apps you already use, so information flows on its own</li>
+          <li>Getting your team set up with AI tools, safely</li>
+        </ul>
       </div>
     </section>
 
@@ -135,15 +119,6 @@
         <li><h3>Start with one thing</h3><p>We automate a single task end to end and make sure it saves time.</p></li>
         <li><h3>Hand it over</h3><p>Everything is documented and yours to keep.</p></li>
       </ol>
-    </section>
-
-    <section class="about" aria-labelledby="about">
-      <h2 id="about">About</h2>
-      <div>
-        <p>Argentic47 is led by Azucena Gonzalez, an AI architect with a background in chemistry.</p>
-        <p class="muted">Ag is the symbol for silver, the most conductive element there is, and also her initials. That's the idea behind the name: less resistance, more flow.</p>
-        <p class="muted">Based in Milton, Ontario.</p>
-      </div>
     </section>
 
     <section class="contact" aria-labelledby="contact">
