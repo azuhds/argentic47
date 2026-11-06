@@ -113,6 +113,8 @@
       -webkit-background-clip:text;background-clip:text;color:transparent;
     }
     .name sup{background-position:0 0}
+    .name{clip-path:inset(-30% 100% -15% 0)}
+    .intro.revealed .name{clip-path:inset(-30% -10% -15% 0);transition:clip-path 1s cubic-bezier(.6,0,.3,1)}
     .intro.signal .name{animation:sweep 1.4s ease-in-out 1.45s}
     .intro.signal .name sup{animation:sheen 1s ease-out 2.45s both}
     @keyframes sweep{from{background-position:100% 0}to{background-position:0 0}}
@@ -199,8 +201,9 @@
       m.classList.add('built'); hero.classList.remove('signal'); void hero.offsetWidth; hero.classList.add('signal');
       setTimeout(function(){busy=false;},3600);
     }
-    setTimeout(send,2300);
-    setTimeout(send,6200);
+    setTimeout(function(){ hero.classList.add('revealed'); },2000);
+    setTimeout(send,3100);
+    setTimeout(send,7200);
     [m,document.querySelector('.name')].forEach(function(el){ el.addEventListener('mouseenter',send); el.addEventListener('click',send); });
   })();
 </script>
