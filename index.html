@@ -73,13 +73,34 @@
     border-top:1px solid var(--line);padding:1.25rem 0 var(--pad);
     display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.85rem;color:var(--muted);
   }
-  .hero-mark{display:block;width:clamp(4.5rem,9vw,6rem);height:auto;margin-bottom:clamp(1.5rem,4vh,2.5rem)}
+  .hero-mark{display:block;width:clamp(6.5rem,13vw,9rem);height:auto;overflow:visible;margin-bottom:clamp(1.5rem,4vh,2.5rem);cursor:default}
+  .m-tile{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+  .m-47{fill:var(--muted)}
+  .m-ag{fill:var(--ink)}
+  .m-br{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round}
+  .m-node{fill:#C3C9D0;stroke:var(--ink);stroke-width:2.2}
+  .m-pulse{fill:none;stroke:#EEF1F4;stroke-width:2.4;stroke-linecap:round;opacity:0}
   .sign{display:flex;align-items:center;gap:1rem}
   .sign img{width:4rem;height:auto}
   .sign span{color:var(--ink);font-size:.95rem}
 
   @media (prefers-reduced-motion:no-preference){
-    .name sup{animation:sheen 2.4s ease-out .6s both}
+    /* The logo builds itself once: tile, then the conductor, then the network, then one signal */
+    .m-tile{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.1s cubic-bezier(.6,0,.3,1) .2s forwards}
+    .m-47,.m-ag{opacity:0;animation:fade .6s ease-out .75s forwards}
+    .m-br{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .45s ease-out forwards}
+    .m-br1{animation-delay:1.25s}.m-br2{animation-delay:1.33s}.m-br3{animation-delay:1.41s}
+    .m-node{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:pop .4s cubic-bezier(.3,1.6,.5,1) forwards}
+    .m-n1{animation-delay:1.62s}.m-n2{animation-delay:1.7s}.m-n3{animation-delay:1.78s}
+    .m-pulse{stroke-dasharray:.14 1.3;stroke-dashoffset:.14}
+    .hero-mark.signal .m-pulse{animation:pulse 1.3s ease-in-out forwards}
+    .hero-mark.signal .m-n2{animation:arrive .5s ease-out 1.05s}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    @keyframes fade{to{opacity:1}}
+    @keyframes pop{to{transform:scale(1)}}
+    @keyframes pulse{0%{opacity:1;stroke-dashoffset:.14}90%{opacity:1}100%{opacity:0;stroke-dashoffset:-1.05}}
+    @keyframes arrive{0%{fill:#C3C9D0;transform:scale(1)}40%{fill:#FFFFFF;transform:scale(1.35)}100%{fill:#C3C9D0;transform:scale(1)}}
+    .name sup{animation:sheen 2.4s ease-out 2.4s both}
     @keyframes sheen{from{background-position:100% 0}to{background-position:0 0}}
   }
   @media (max-width:760px){
@@ -92,7 +113,18 @@
 <body>
 <div class="wrap">
   <header class="intro">
-    <img class="hero-mark" src="assets/argentic47-mark.svg" alt="" width="178" height="122">
+    <svg class="hero-mark" viewBox="0 0 150 114" width="150" height="114" role="img" aria-label="Argentic47 logo: the silver element tile, Ag 47, with a line flowing out into a small neural network">
+      <path class="m-tile" pathLength="1" d="M101.75,33 V4.25 H4.25 V109.75 H101.75 V62 Q101.75,50 111,50 H115"/>
+      <path class="m-47" d="M20.916 29.0V26.178H15.272V25.039L21.035 17.151H22.361V24.835H24.265V26.178H22.361V29.0ZM16.479 25.345 16.36 24.835H20.916V18.766L21.086 18.884999999999998Z M26.288000000000004 29.0 32.068000000000005 17.984 32.459 18.494H24.996000000000002V17.151H33.496V18.256L27.886000000000003 29.0Z"/>
+      <path class="m-ag" d="M20.606999999999996 82.0 36.035 41.574H40.095L55.522999999999996 82.0H49.955L38.123 48.882L26.232999999999997 82.0ZM29.190999999999995 72.488 30.756999999999998 67.906H45.373L47.05499999999999 72.488Z M72.285 94.354Q66.137 94.354 62.541 92.092Q58.945 89.83 58.945 85.828Q58.945 85.538 58.974000000000004 85.074Q59.003 84.61 59.119 84.204L66.253 79.042L67.935 80.202L63.875 85.248Q63.817 85.48 63.817 85.654Q63.817 85.828 63.817 86.002Q63.817 88.322 66.253 89.453Q68.689 90.584 72.285 90.584Q75.475 90.584 77.56299999999999 89.685Q79.651 88.786 79.651 86.756Q79.651 85.596 78.98400000000001 84.87100000000001Q78.31700000000001 84.146 77.07000000000001 83.74000000000001Q75.82300000000001 83.334 74.141 83.04400000000001Q72.459 82.754 70.371 82.464Q67.761 82.058 65.29599999999999 81.304Q62.831 80.55 61.236000000000004 79.1Q59.641 77.65 59.641 75.272Q59.641 73.242 61.062 71.56Q62.483000000000004 69.878 64.803 68.776L67.935 70.806Q65.963 71.27 65.151 72.227Q64.339 73.184 64.339 74.518Q64.339 75.62 65.122 76.316Q65.905 77.012 67.384 77.38900000000001Q68.863 77.766 70.951 78.056Q73.735 78.462 76.17099999999999 78.926Q78.607 79.39 80.492 80.231Q82.37700000000001 81.072 83.421 82.493Q84.465 83.914 84.465 86.176Q84.465 90.12 81.217 92.237Q77.969 94.354 72.285 94.354ZM71.589 73.068Q68.283 73.068 65.731 71.792Q63.179 70.516 61.758 68.254Q60.337 65.992 60.337 63.092Q60.337 60.076 61.816 57.785Q63.295 55.494 65.81800000000001 54.218Q68.34100000000001 52.942 71.415 52.942Q74.431 52.942 76.925 54.218Q79.419 55.494 80.92699999999999 57.814Q82.435 60.134 82.435 63.266Q82.435 66.224 81.043 68.428Q79.651 70.632 77.215 71.85Q74.779 73.068 71.589 73.068ZM71.473 69.066Q74.373 69.066 75.968 67.297Q77.563 65.52799999999999 77.563 62.976Q77.563 60.25 75.881 58.568Q74.199 56.885999999999996 71.473 56.885999999999996Q68.689 56.885999999999996 66.949 58.596999999999994Q65.209 60.308 65.209 62.918Q65.209 65.52799999999999 66.891 67.297Q68.57300000000001 69.066 71.473 69.066ZM80.57900000000001 58.742 77.041 56.364 83.07300000000001 51.376 85.56700000000001 54.45Z"/>
+      <path class="m-br m-br1" pathLength="1" d="M115,50 C121,50 123,36 130,31"/>
+      <path class="m-br m-br2" pathLength="1" d="M115,50 C123,50 129,48 138,46"/>
+      <path class="m-br m-br3" pathLength="1" d="M115,50 C120,52 122,62 127,66"/>
+      <circle class="m-node m-n1" cx="133" cy="28" r="4.6"/>
+      <circle class="m-node m-n2" cx="142" cy="46" r="4"/>
+      <circle class="m-node m-n3" cx="130" cy="69" r="3.6"/>
+      <path class="m-pulse" pathLength="1" d="M101.75,80 V62 Q101.75,50 111,50 H115 C123,50 129,48 138,46"/>
+    </svg>
     <h1 class="name">Argentic<sup>47</sup></h1>
     <hr class="rule">
     <p class="line">Practical AI and automation that gives teams their time back.</p>
@@ -138,5 +170,14 @@
     <span>© 2026 Argentic47 Inc.</span>
   </footer>
 </div>
+<script>
+  // One signal travels through the network after the logo builds, and again whenever someone hovers or taps the logo.
+  (function(){
+    var m=document.querySelector('.hero-mark'); if(!m||!window.matchMedia||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    function send(){ m.classList.remove('signal'); void m.getBoundingClientRect(); m.classList.add('signal'); }
+    setTimeout(send,2300);
+    m.addEventListener('mouseenter',send); m.addEventListener('click',send);
+  })();
+</script>
 </body>
 </html>
