@@ -180,7 +180,7 @@
 </div>
 <script>
   // After the logo builds, light flows from the tile through the network and across the name.
-  // It plays twice on arrival, then only when someone hovers over or taps the logo or the name.
+  // It plays once on arrival, then only when someone hovers over or taps the logo or the name.
   (function(){
     var hero=document.querySelector('.intro'), m=document.querySelector('.hero-mark');
     if(!hero||!m||!window.matchMedia||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -192,7 +192,6 @@
     }
     setTimeout(function(){ hero.classList.add('revealed'); },2000);
     setTimeout(send,3100);
-    setTimeout(send,7200);
     [m,document.querySelector('.name')].forEach(function(el){ el.addEventListener('mouseenter',send); el.addEventListener('click',send); });
   })();
 </script>
