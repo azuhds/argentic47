@@ -94,18 +94,28 @@
     .hero-mark.built .m-node{transform:scale(1)}
     .m-n1{animation-delay:1.62s}.m-n2{animation-delay:1.7s}.m-n3{animation-delay:1.78s}
     .m-pulse{stroke-dasharray:.12 1.3;stroke-dashoffset:.12}
-    .hero-mark.signal .m-p1{animation:pulse 1.5s ease-in-out .15s forwards}
-    .hero-mark.signal .m-p2{animation:pulse 1.5s ease-in-out forwards}
-    .hero-mark.signal .m-p3{animation:pulse 1.5s ease-in-out .3s forwards}
-    .hero-mark.signal .m-n1{animation:arrive .55s ease-out 1.35s}
-    .hero-mark.signal .m-n2{animation:arrive .55s ease-out 1.2s}
-    .hero-mark.signal .m-n3{animation:arrive .55s ease-out 1.5s}
+    .intro.signal .m-p1{animation:pulse 1.5s ease-in-out .15s forwards}
+    .intro.signal .m-p2{animation:pulse 1.5s ease-in-out forwards}
+    .intro.signal .m-p3{animation:pulse 1.5s ease-in-out .3s forwards}
+    .intro.signal .m-n1{animation:arrive .55s ease-out 1.35s}
+    .intro.signal .m-n2{animation:arrive .55s ease-out 1.2s}
+    .intro.signal .m-n3{animation:arrive .55s ease-out 1.5s}
     @keyframes draw{0%{opacity:1;stroke-dashoffset:1}100%{opacity:1;stroke-dashoffset:0}}
     @keyframes fade{to{opacity:1}}
     @keyframes pop{to{transform:scale(1)}}
     @keyframes pulse{0%{opacity:0;stroke-dashoffset:.12}10%{opacity:1}88%{opacity:1}100%{opacity:0;stroke-dashoffset:-1.02}}
     @keyframes arrive{0%{fill:#C3C9D0;transform:scale(1)}40%{fill:#FFFFFF;transform:scale(1.35)}100%{fill:#C3C9D0;transform:scale(1)}}
-    .name sup{animation:sheen 2.4s ease-out 2.4s both}
+    /* After the nodes light up, the same light sweeps through the name */
+    .name{
+      display:inline-block;align-self:flex-start;padding:0 .08em .2em 0;margin-bottom:-.2em;
+      background:linear-gradient(100deg,var(--ink) 0%,var(--ink) 40%,#E3E7EB 50%,var(--ink) 60%,var(--ink) 100%);
+      background-size:320% 100%;background-position:100% 0;
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .name sup{background-position:0 0}
+    .intro.signal .name{animation:sweep 1.4s ease-in-out 1.45s}
+    .intro.signal .name sup{animation:sheen 1s ease-out 2.45s both}
+    @keyframes sweep{from{background-position:100% 0}to{background-position:0 0}}
     @keyframes sheen{from{background-position:100% 0}to{background-position:0 0}}
   }
   @media (max-width:760px){
@@ -178,13 +188,20 @@
   </footer>
 </div>
 <script>
-  // After the logo builds, signals flow from the tile to each node. It repeats gently, and on hover or tap.
+  // After the logo builds, light flows from the tile through the network and across the name.
+  // It plays twice on arrival, then only when someone hovers over or taps the logo or the name.
   (function(){
-    var m=document.querySelector('.hero-mark'); if(!m||!window.matchMedia||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    function send(){ m.classList.add('built'); m.classList.remove('signal'); void m.getBoundingClientRect(); m.classList.add('signal'); }
+    var hero=document.querySelector('.intro'), m=document.querySelector('.hero-mark');
+    if(!hero||!m||!window.matchMedia||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var busy=false;
+    function send(){
+      if(busy) return; busy=true;
+      m.classList.add('built'); hero.classList.remove('signal'); void hero.offsetWidth; hero.classList.add('signal');
+      setTimeout(function(){busy=false;},3600);
+    }
     setTimeout(send,2300);
-    setInterval(function(){ if(!document.hidden) send(); },7000);
-    m.addEventListener('mouseenter',send); m.addEventListener('click',send);
+    setTimeout(send,6200);
+    [m,document.querySelector('.name')].forEach(function(el){ el.addEventListener('mouseenter',send); el.addEventListener('click',send); });
   })();
 </script>
 </body>
