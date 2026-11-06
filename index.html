@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Argentic47</title>
-<meta name="description" content="Practical AI and automation that gives teams their time back. For small businesses and IT teams in Ontario.">
+<meta name="description" content="Practical AI and automation that gives teams their time back. Less resistance. More flow.">
 <meta property="og:title" content="Argentic47">
 <meta property="og:description" content="Practical AI and automation that gives teams their time back.">
 <meta property="og:image" content="https://argentic47.com/assets/argentic47-social.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="assets/argentic47-mark.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <style>
   :root{
     --bg:#F7F8F9;
@@ -74,17 +74,12 @@
 
   footer{
     border-top:1px solid var(--line);padding:1.25rem 0 var(--pad);
-    display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;font-size:.85rem;color:var(--muted);
+    display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.85rem;color:var(--muted);
   }
-  .ag{
-    width:3.25rem;height:3.5rem;border:1px solid var(--ink);border-radius:2px;
-    padding:.28rem .35rem;display:flex;flex-direction:column;justify-content:space-between;
-    background:linear-gradient(145deg,#FBFCFC 0%,#DDE1E6 45%,#F2F4F6 60%,#C9CFD5 100%);
-    color:var(--ink);line-height:1;
-  }
-  .ag .n{font-size:.55rem;color:var(--muted)}
-  .ag .s{font-size:1.25rem;font-weight:500;letter-spacing:-.02em}
-  .ag .m{font-size:.45rem;color:var(--muted)}
+  .hero-mark{display:block;width:clamp(4.5rem,9vw,6rem);height:auto;margin-bottom:clamp(1.5rem,4vh,2.5rem)}
+  .sign{display:flex;align-items:center;gap:1rem}
+  .sign img{width:4rem;height:auto}
+  .sign span{color:var(--ink);font-size:.95rem}
 
   @media (prefers-reduced-motion:no-preference){
     .name sup{animation:sheen 2.4s ease-out .6s both}
@@ -100,6 +95,7 @@
 <body>
 <div class="wrap">
   <header class="intro">
+    <img class="hero-mark" src="assets/argentic47-mark.svg" alt="" width="178" height="122">
     <h1 class="name">Argentic<sup>47</sup></h1>
     <hr class="rule">
     <p class="line">Practical AI and automation that gives teams their time back.</p>
@@ -145,7 +141,7 @@
       <h2 id="about">About</h2>
       <div>
         <p>Argentic47 is led by Azucena Gonzalez, an AI architect with a background in chemistry.</p>
-        <p class="muted">Ag is the symbol for silver, the most conductive element there is, and also her initials. That's the idea behind the name: helping work flow with less resistance.</p>
+        <p class="muted">Ag is the symbol for silver, the most conductive element there is, and also her initials. That's the idea behind the name: less resistance, more flow.</p>
         <p class="muted">Based in Milton, Ontario.</p>
       </div>
     </section>
@@ -160,8 +156,8 @@
   </main>
 
   <footer>
+    <span class="sign"><img src="assets/argentic47-mark.svg" alt="Argentic47 mark: the silver element tile, Ag 47, with a line flowing out into a network" width="178" height="122"><span>Less resistance. More flow.</span></span>
     <span>© 2026 Argentic47 Inc.</span>
-    <span class="ag" role="img" aria-label="Silver: atomic number 47, symbol Ag" title="Silver, element 47"><span class="n">47</span><span class="s">Ag</span><span class="m">107.87</span></span>
   </footer>
 </div>
 </body>
