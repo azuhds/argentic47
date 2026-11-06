@@ -4,11 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Argentic47</title>
-<meta name="description" content="Practical AI and automation that gives teams their time back.">
+<meta name="description" content="Practical AI and automation that gives teams their time back. For small businesses and IT teams in Ontario.">
+<meta property="og:title" content="Argentic47">
+<meta property="og:description" content="Practical AI and automation that gives teams their time back.">
+<meta property="og:image" content="https://argentic47.com/assets/argentic47-social.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='3' y='3' width='58' height='58' fill='%23F7F8F9' stroke='%23252A31' stroke-width='3'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial' font-size='26' text-anchor='middle' fill='%23252A31'%3EAg%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="assets/argentic47-mark.svg" type="image/svg+xml">
 <style>
   :root{
     --bg:#F7F8F9;
@@ -16,26 +19,21 @@
     --muted:#6B737D;
     --silver:#A9B1BA;
     --line:#D5DAE0;
+    --pad:clamp(1.5rem,5vw,4.5rem);
   }
   *{box-sizing:border-box}
-  html,body{height:100%}
   body{
     margin:0;background:var(--bg);color:var(--ink);
     font-family:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
-    -webkit-font-smoothing:antialiased;
+    font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;
   }
-  .page{
-    min-height:100vh;min-height:100svh;
-    display:grid;grid-template-rows:1fr auto;
-    padding:clamp(1.5rem,5vw,4.5rem);
-  }
-  main{align-self:end;max-width:40rem;padding-bottom:clamp(3rem,10vh,7rem)}
+  a{color:inherit}
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+  .wrap{max-width:68rem;margin:0 auto;padding:0 var(--pad)}
 
-  .name{
-    margin:0;font-weight:300;letter-spacing:-.035em;line-height:1;
-    font-size:clamp(3.2rem,11vw,7.5rem);
-  }
-  /* Element notation: 47 sits where an atomic number would */
+  /* Opening: the calling card, kept intact */
+  .intro{min-height:88vh;min-height:88svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(3rem,10vh,6rem)}
+  .name{margin:0;font-weight:300;letter-spacing:-.035em;line-height:1;font-size:clamp(3.2rem,11vw,7.5rem)}
   .name sup{
     font-size:max(.26em,1.05rem);font-weight:400;letter-spacing:0;vertical-align:top;
     position:relative;top:.35em;margin-left:.12em;
@@ -44,17 +42,39 @@
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .rule{width:3rem;height:1px;background:var(--silver);margin:2.25rem 0 1.75rem;border:0}
-  .line{margin:0;font-size:clamp(1.1rem,2.2vw,1.35rem);line-height:1.5;color:var(--muted);font-weight:400;max-width:28rem}
+  .line{margin:0;font-size:clamp(1.15rem,2.3vw,1.4rem);line-height:1.5;color:var(--muted);max-width:30rem}
   .email{
     display:inline-block;margin-top:2.25rem;font-size:clamp(1.05rem,2vw,1.2rem);font-weight:500;
-    color:var(--ink);text-decoration:none;border-bottom:1px solid var(--silver);padding-bottom:.2rem;
+    text-decoration:none;border-bottom:1px solid var(--silver);padding-bottom:.2rem;
   }
   .email:hover{border-bottom-color:var(--ink)}
-  .email:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+  .intro .email{align-self:flex-start}
+
+  /* Content sections: quiet, left-aligned, hairline separated */
+  section{border-top:1px solid var(--line);padding:clamp(3rem,8vw,5.5rem) 0;display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:2rem 4rem}
+  section h2{margin:0;font-size:1.05rem;font-weight:500;line-height:1.4}
+  .lead{margin:0 0 2.5rem;font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:300;line-height:1.35;letter-spacing:-.01em;max-width:34rem}
+
+  .audiences{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem 3.5rem}
+  .audiences h3{margin:0 0 .9rem;font-size:1.05rem;font-weight:500}
+  .audiences ul{margin:0;padding:0;list-style:none}
+  .audiences li{padding:.7rem 0;border-top:1px solid var(--line);color:var(--muted)}
+
+  .steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.5rem}
+  .steps li{counter-increment:s}
+  .steps{counter-reset:s}
+  .steps li::before{content:counter(s);display:block;font-size:2.2rem;font-weight:300;line-height:1;margin-bottom:1rem;color:var(--silver)}
+  .steps h3{margin:0 0 .4rem;font-size:1.05rem;font-weight:500}
+  .steps p{margin:0;color:var(--muted)}
+
+  .about p{margin:0 0 1rem;max-width:36rem}
+  .about p.muted{color:var(--muted)}
+
+  .contact .lead{margin-bottom:0}
 
   footer{
-    display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;
-    font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:1.25rem;
+    border-top:1px solid var(--line);padding:1.25rem 0 var(--pad);
+    display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;font-size:.85rem;color:var(--muted);
   }
   .ag{
     width:3.25rem;height:3.5rem;border:1px solid var(--ink);border-radius:2px;
@@ -70,20 +90,79 @@
     .name sup{animation:sheen 2.4s ease-out .6s both}
     @keyframes sheen{from{background-position:100% 0}to{background-position:0 0}}
   }
+  @media (max-width:760px){
+    section{grid-template-columns:1fr;gap:1.25rem}
+    .audiences,.steps{grid-template-columns:1fr;gap:2rem}
+    .intro{min-height:80svh}
+  }
 </style>
 </head>
 <body>
-  <div class="page">
-    <main>
-      <h1 class="name">Argentic<sup>47</sup></h1>
-      <hr class="rule">
-      <p class="line">Practical AI and automation that gives teams their time back.</p>
-      <a class="email" href="mailto:ag@argentic47.com">ag@argentic47.com</a>
-    </main>
-    <footer>
-      <span>© 2026 Argentic47 Inc.</span>
-      <span class="ag" role="img" aria-label="Silver: atomic number 47, symbol Ag" title="Silver, element 47"><span class="n">47</span><span class="s">Ag</span><span class="m">107.87</span></span>
-    </footer>
-  </div>
+<div class="wrap">
+  <header class="intro">
+    <h1 class="name">Argentic<sup>47</sup></h1>
+    <hr class="rule">
+    <p class="line">Practical AI and automation that gives teams their time back.</p>
+    <a class="email" href="mailto:ag@argentic47.com">ag@argentic47.com</a>
+  </header>
+
+  <main>
+    <section aria-labelledby="who">
+      <h2 id="who">Who we help</h2>
+      <div>
+        <p class="lead">We take repetitive work off your team's plate, using the tools you already have.</p>
+        <div class="audiences">
+          <div>
+            <h3>Small businesses</h3>
+            <ul>
+              <li>A simple website you can actually update</li>
+              <li>Everyday tasks on autopilot: bookings, forms, follow-ups and invoices</li>
+              <li>Getting your team set up with AI tools, safely</li>
+            </ul>
+          </div>
+          <div>
+            <h3>IT teams</h3>
+            <ul>
+              <li>Common service desk requests resolved automatically, end to end</li>
+              <li>Microsoft 365 access and licensing handled by rules instead of tickets</li>
+              <li>AI assistants that only take approved, logged actions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="how">
+      <h2 id="how">How we work</h2>
+      <ol class="steps">
+        <li><h3>Look at the real work</h3><p>We start from what your team does every day, not a wishlist.</p></li>
+        <li><h3>Start with one thing</h3><p>We automate a single task end to end and make sure it saves time.</p></li>
+        <li><h3>Hand it over</h3><p>Everything is documented and yours to keep.</p></li>
+      </ol>
+    </section>
+
+    <section class="about" aria-labelledby="about">
+      <h2 id="about">About</h2>
+      <div>
+        <p>Argentic47 is led by Azucena Gonzalez, an AI architect with a background in chemistry.</p>
+        <p class="muted">Ag is the symbol for silver, the most conductive element there is, and also her initials. That's the idea behind the name: helping work flow with less resistance.</p>
+        <p class="muted">Based in Milton, Ontario.</p>
+      </div>
+    </section>
+
+    <section class="contact" aria-labelledby="contact">
+      <h2 id="contact">Contact</h2>
+      <div>
+        <p class="lead">Tell us what's slowing your team down.</p>
+        <a class="email" href="mailto:ag@argentic47.com">ag@argentic47.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Argentic47 Inc.</span>
+    <span class="ag" role="img" aria-label="Silver: atomic number 47, symbol Ag" title="Silver, element 47"><span class="n">47</span><span class="s">Ag</span><span class="m">107.87</span></span>
+  </footer>
+</div>
 </body>
 </html>
